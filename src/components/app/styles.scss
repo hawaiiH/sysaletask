@@ -1,0 +1,415 @@
+body {
+  background: #E5E5E5;
+  font-family: 'SF UI Display', sans-serif;
+  font-style: normal;
+  color: #2C2C2C;
+}
+// itemsList
+// Item List
+.item-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+// Item
+.item {
+  width: 537px;
+  height: 707px;
+  background: #fff;
+  border-radius: 25px;
+  display: grid;
+  grid-template-rows: repeat(6, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  margin: 50px 35px;
+  &:hover {
+    box-shadow: (0px 4px 45px #C3D4E4);
+  }
+  &__top {
+    grid-row-start: 1;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    position: relative;
+  }
+  &__tag {
+    width: 71px;
+    height: 26px;
+    background: linear-gradient(261.65deg, #EFBB37 -3.95%, #CF9E1F 109.44%);
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+    text-align: center;
+    position: relative;
+    left: 31px;
+    top: 54px;
+    cursor: default;
+    & span {
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 17px;
+      color: #FFFFFF;
+      vertical-align: sub;
+    }
+  }
+  &__img {
+    margin: 54px auto 0 auto;
+    height: 261px;
+    width: 256px;
+    max-width:100%;
+    max-height:100%;
+    overflow: hidden;
+    border-radius: 30px;
+  }
+  &__compare {
+    width: 46px;
+    height: 46px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+    position: absolute;
+    right: 30px;
+    top: 44px;
+    cursor: pointer;
+    transition: box-shadow .3s;
+    user-select: none;
+    & img {
+      margin: 15px;
+    }
+    &:hover {
+      box-shadow: (0px 0px 8px #BDD0E3);
+    }
+  }
+  &__name {
+    grid-row-start: 2;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    text-align: center;
+    & h1 {
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 29px;
+      color: #2C2C2C;
+    }
+  }
+  &__description {
+    grid-row-start: 3;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    text-align: left;
+    margin-bottom: 20px;
+    & p {
+      margin: 0 45px;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+  &__select-and-price {
+    position: relative;
+    grid-row-start: 4;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 0 45px;
+  }
+  &__price {
+    position: absolute;
+    right: 0;
+    top: 5px;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 21px;
+  }
+  &__select-volumes {
+    grid-row-start: 5;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    display: flex;
+    flex-direction: column;
+  }
+  &__amount {
+    grid-row-start: 6;
+    grid-column-start: 1;
+    margin-left: 62px;
+  }
+  &__button {
+    grid-row-start: 6;
+    grid-column-start: 2;
+    grid-column-end: 4;
+  }
+}
+// Images
+.img0 {
+  background: url('../../static/1st-2.jpg');
+  &:hover img {
+    display: none;
+  }
+}
+.img1 {
+  & img {
+    margin: 0 64px;
+    transition: transform .5s;
+  }
+  &:hover img{
+    transform: scale(2);
+  }
+}
+.img2:hover {
+  box-shadow: (0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+// Gradient Button
+.button-gradient {
+  width: 302px;
+  height: 39px;
+  border: none;
+  border-radius: 30px;
+  font-size: 18px;
+  line-height: 21px;
+  color: #FFFFFF;
+  background-image: linear-gradient(261.65deg, #FFD773, #EFBB37, #BF911A, #BA8A12);
+  background-position: 25%;
+  background-size: 200%;
+  transition: .5s ease;
+  &:hover {
+    background-position: 0%;
+  }
+  &:focus {
+    background-position: 75%;
+    outline: none
+  }
+}
+// Amount Button
+.amount {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 92px;
+  height: 39px;
+  font-size: 20px;
+  line-height: 23px;
+  background: #E2E9F0;
+  border-radius: 30px;
+  cursor: default;
+  user-select: none;
+  & span {
+    text-align: center;
+    margin-top: 8px;
+  }
+  &__minus {
+    cursor: pointer;
+  }
+  &__plus {
+    cursor: pointer;
+  }
+}
+// Volume Radio
+.volume {
+  margin-bottom: 14px;
+  position: relative;
+  &:last-child {
+    margin-bottom: 24px;
+  }
+  &__input {
+    margin: 0 10px 0 68px;
+    &::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: 68px;
+      display: inline-block;
+      width: 22.5px;
+      height: 22.5px;
+      background: #DEDEDE;
+      border-radius: 5px;
+    }
+    &+label {
+      position: relative;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 19px;
+      text-align: right;
+      margin: 0 12px 0 10px;
+      &::before {
+        transition: all .3s ease;
+        content: '';
+        position: absolute;
+        width: 0px;
+        height: 0px;
+        background: linear-gradient(261.65deg, #EFBB37 -3.95%, #CF9E1F 109.44%);
+        border-radius: 5px;
+        top: 9px;
+        left: -22px;
+      }
+    }
+    &:checked+label::before {
+      width: 17px;
+      height: 17px;
+      top: -0px;
+      left: -30px;
+    }
+  }
+}
+
+// Select Colors
+.select-box {
+  position: relative;
+  display: block;
+  width: 258px;
+  height: 30px;
+  font-size: 12px;
+  z-index: 999;
+  &__current {
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    &:focus {
+      & .select-box__input-text {
+        border-radius: 22px 22px 0 0;
+      }
+      & + .select-box__list {
+        opacity: 1;
+        animation-name: none;
+        
+        .select-box__option {
+          cursor: pointer;
+        }
+      }
+      .select-box__icon {
+        transform: translateY(-50%) rotate(180deg);
+      }
+    }
+  }
+  &__icon {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    width: 20px;
+    transition: 0.2s ease;
+  }
+  &__value {
+    display: flex;
+  }
+  &__input {
+    display: none;
+    &:checked + .select-box__input-text {
+      display: block;
+    }
+  }
+  &__input-text {
+    display: none;
+    width: 100%;
+    margin: 0;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 30px;
+  }
+  &__list {
+    position: absolute;
+    width: 100%;
+    max-height: 72px;
+    padding: 0;
+    list-style: none;
+    opacity: 0;
+    margin: 0;
+    margin-top: -10px;
+    transition: max-height .5s ease-in-out;
+    overflow-y: auto;
+    box-sizing: border-box;
+    border-radius: 0 0 23px 23px;
+    border-right: 5px solid white;
+    &::-webkit-scrollbar {
+      width: 3px;
+      background: white;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: #E0E9F2;
+      border-radius: 10px;
+      padding-right: 5px;
+    }
+    animation-name: HideList;
+    animation-duration: 0.5s;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: step-start;
+  }
+  &__option {
+    display: block;
+    padding: 5px 15px;
+    background-color: #fff;
+    &:hover,
+    &:focus {
+      color: #546c84;
+      background-color: #fbfbfb;
+    }
+  }
+}
+@keyframes HideList {
+  from {
+    transform: scaleY(1);
+  }
+  to {
+    transform: scaleY(0);
+  }
+}
+.wrap {
+  height: 72px;
+}
+// cart
+// Cart wrapper
+.cart-block {
+  margin: 0 auto;
+  background: #F8FAFC;
+  padding: 12px 10px;
+  border-radius: 25px;
+  max-width: 1788px;
+  & h1 {
+    margin-left: 40px;
+    font-size: 37px;
+    line-height: 44px;
+  }
+  &:hover {
+    box-shadow: (0px 0px 8px #BDD0E3);
+  }
+}
+// Cart Item
+.cart-item {
+  display: grid;
+  grid-template-columns: 150px 1fr 1fr 1fr 1fr 1fr 120px;
+  border-top: 1px solid #CF9E1F;
+  padding: 24px 0;
+  & > div {
+    align-self: center;
+    text-align: center;
+  }
+  &__img {
+    height: 153px;
+    width: 150px;
+    overflow: hidden;
+    border-radius: 20px;
+    margin-left: 40px;
+    & img {
+      max-width:100%;
+      max-height:100%;
+    }
+    &:hover {
+      box-shadow: (0px 4px 4px rgba(0, 0, 0, 0.25));
+    }
+  }
+  &__name {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+  }
+  &__color {
+    font-size: 20px;
+    line-height: 24px;
+  }
+  &__volume {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+  }
+  &__delete {
+    cursor: pointer;
+  }
+}
