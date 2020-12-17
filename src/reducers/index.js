@@ -135,8 +135,9 @@ const reducer = (state = initialState, action) => {
             ...state[action.payload].slice(decInd + 1)
           ]
         };
+      } else {
+        return state;
       }
-    break;
     case 'SUBMIT_ITEM':
       const submitItem = state.shopItems[action.id];
       const costSub = submitItem.price*submitItem.amount*(submitItem.volume/100); 
@@ -159,8 +160,9 @@ const reducer = (state = initialState, action) => {
           ],
           idCart: ++state.idCart
         };
+      } else {
+        return state;
       }
-    break;
     case 'REMOVE_ITEM':
       const removeInd = state.cart.findIndex(item => item.id === action.id);
       return {
